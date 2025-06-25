@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Galería con Efectos</title>
+  <style>
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .imagen {
+      position: relative;
+    }
+    .imagen img {
+      width: 200px;
+      transition: opacity 0.5s;
+    }
+    .botones {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 8px 15px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Galería Interactiva</h1>
+
+  <div class="botones">
+    <button onclick="ocultarImagen('img1')">Ocultar Imagen 1</button>
+    <button onclick="mostrarImagen('img1')">Mostrar Imagen 1</button>
+
+    <button onclick="ocultarImagen('img2')">Ocultar Imagen 2</button>
+    <button onclick="mostrarImagen('img2')">Mostrar Imagen 2</button>
+
+    <button onclick="ocultarImagen('img3')">Ocultar Imagen 3</button>
+    <button onclick="mostrarImagen('img3')">Mostrar Imagen 3</button>
+
+    <br><br>
+    <button onclick="mostrarTodas()">Mostrar Todas</button>
+    <button onclick="ocultarTodas()">Ocultar Todas</button>
+  </div>
+
+  <div class="galeria">
+    <div class="imagen" id="img1"><img src="img1.jpg" alt="Imagen 1"></div>
+    <div class="imagen" id="img2"><img src="img2.jpg" alt="Imagen 2"></div>
+    <div class="imagen" id="img3"><img src="img3.jpg" alt="Imagen 3"></div>
+  </div>
+
+  <script>
+    function ocultarImagen(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function mostrarImagen(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function mostrarTodas() {
+      const imagenes = document.getElementsByClassName('imagen');
+      for (let i = 0; i < imagenes.length; i++) {
+        imagenes[i].style.display = 'block';
+      }
+    }
+
+    function ocultarTodas() {
+      const imagenes = document.getElementsByClassName('imagen');
+      for (let i = 0; i < imagenes.length; i++) {
+        imagenes[i].style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>
